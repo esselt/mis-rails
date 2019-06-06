@@ -1,0 +1,44 @@
+<h1>Overview</h1>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= render partial: 'pagination' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <% unless @invoices.empty? %>
+        <div id="invoice-container" class="list-group">
+          <h4 class="list-group-item list-group-item-warning">Invoices not matched</h4>
+          <%= render @invoices %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <% unless @attachments.empty? %>
+        <div id="attachment-container" class="list-group">
+          <h4 class="list-group-item list-group-item-warning">Attachments not matched</h4>
+          <%= render @attachments %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div id="match-container" class="list-group">
+      <h4 class="list-group-item active">Matched customers, invoices and attachments</h4>
+      <%= render @matches %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= render partial: 'pagination' %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  name: MyString
+  email: MyString
+  title: MyString
+  message: MyText
+  jobs: 
+  uploads: 
+
+two:
+  customer_id: 1
+  name: MyString
+  email: MyString
+  title: MyString
+  message: MyText
+  jobs: 
+  uploads: 

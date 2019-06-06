@@ -1,0 +1,50 @@
+<div id="<%= match.id %>" class="list-group-item">
+  <div class="row">
+    <div class="col-lg-7">
+      <h4>
+        #<%= match.customer_id %> - <%= match.name %>
+        <% if match.status == 'error' %>
+            <br>
+            <span class="danger"><%= match.error %></span>
+        <% end %>
+      </h4>
+
+      <div id="uploads">
+        <legend>Files</legend>
+        <%= render partial: 'uploads/match', locals: {upload: match.upload} %>
+        <% match.upload.attachments.order(:filename).each do |upload| %>
+            <%= render partial: 'uploads/match', locals: {upload: upload} %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <h4>E-mail</h4>
+      <div class="row">
+        <em class="col-lg-2">Date:</em>
+        <span class="col-lg-10"><%= match.sent_at ? match.sent_at.localtime : "#{match.updated_at.localtime} (last update)" %></span>
+      </div>
+      <div class="row">
+        <em class="col-lg-2">Sent to:</em>
+        <span class="col-lg-10"><%= match.email %></span>
+      </div>
+      <div class="row">
+        <em class="col-lg-2">Attachment:</em>
+        <span class="col-lg-10">
+          <a href="<%= (match.upload.combined ? match.upload.combined : match.upload).filename.url %>" target="_blank">
+            <%= truncate (match.upload.combined ? match.upload.combined : match.upload).filename_identifier %>
+          </a>
+        </span>
+      </div>
+      <div class="row">
+        <em class="col-lg-2">Title:</em>
+        <span class="col-lg-10">
+          <%= match.title %>
+        </span>
+      </div>
+      <div class="row">
+        <em class="col-lg-2">Message:</em>
+        <span class="col-lg-10"><%= simple_format(match.message) %></span>
+      </div>
+    </div>
+  </div>
+</div>

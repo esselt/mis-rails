@@ -1,0 +1,29 @@
+<div class="login-form">
+  <%= form_tag user_ldap_omniauth_callback_path, method: :post, class: 'form-horizontal' do %>
+
+      <fieldset>
+        <legend>Please sign in</legend>
+
+        <div class="form-group">
+          <label for="username" class="col-lg-2 control-label">Username</label>
+          <div class="col-lg-10">
+            <%= text_field_tag :username, '', class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-10">
+            <%= password_field_tag :password, '', class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <%= submit_tag 'Log in', class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </fieldset>
+
+  <% end %>
+</div>

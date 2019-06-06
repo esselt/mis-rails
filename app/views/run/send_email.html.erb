@@ -1,0 +1,89 @@
+<h1>Send e-mails</h1>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= render partial: 'pagination' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <a id="process-btn" class="btn btn-success pull-right">Start sending...</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div id="matched-container" class="list-group">
+      <h4 class="list-group-item active">Matched</h4>
+      <% @matches.where(status: :matched).find_each do |match| %>
+          <%= render partial: 'matches/status', locals: {match: match} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div id="processing-container" class="list-group">
+      <h4 class="list-group-item active">Started processing</h4>
+      <% @matches.where(status: :processing).find_each do |match| %>
+          <%= render partial: 'matches/status', locals: {match: match} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div id="combined-container" class="list-group">
+      <h4 class="list-group-item active">Combined</h4>
+      <% @matches.where(status: :combined).find_each do |match| %>
+          <%= render partial: 'matches/status', locals: {match: match} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div id="sent-container" class="list-group">
+      <h4 class="list-group-item list-group-item-success">Sent</h4>
+      <% @matches.where(status: :sent).find_each do |match| %>
+          <%= render partial: 'matches/status', locals: {match: match} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div id="error-container" class="list-group">
+      <h4 class="list-group-item list-group-item-danger">Error</h4>
+      <% @matches.where(status: :error).find_each do |match| %>
+          <%= render partial: 'matches/status', locals: {match: match} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 text-right">
+    <%= link_to 'Finish job',
+                wizard_path(wizard_steps.last, :job_id => @job.id),
+                class: 'btn btn-danger' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= render partial: 'pagination' %>
+  </div>
+</div>
+
+<script>
+  var source = new EventSource('<%= ujs_show_path(@job.id) %>');
+  source.addEventListener('change', function (event) {
+    $.globalEval(event.data);
+  });
+</script>

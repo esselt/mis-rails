@@ -1,0 +1,16 @@
+<div id="<%= match.id %>" class="list-group-item">
+  <span class="pull-right">
+    <%= link_to 'Process',
+                ujs_run_path(match.id),
+                id: 'match',
+                class: 'btn btn-m btn-success',
+                remote: true if match.status == 'matched' %>
+  </span>
+
+  <h4>
+    #<%= match.customer_id %> - <%= match.name %>
+    <small>(<%= match.email %>)</small>
+  </h4>
+
+  <div id="message" class="text-danger"><%= match.error %></div>
+</div>

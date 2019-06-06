@@ -1,0 +1,2 @@
+$('[id$="-container"]').find('#<%= match.id %>').remove();
+$('#<%= match.status %>-container').append('<%= j render partial: 'matches/status', locals: { match: match } %>');

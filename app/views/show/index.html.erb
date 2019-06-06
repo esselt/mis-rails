@@ -1,0 +1,49 @@
+<h1>List of jobs</h1>
+
+<%= paginate @jobs %>
+
+<% if @jobs.empty? %>
+<p><em>No jobs to list</em></p>
+<% else %>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Status</th>
+    <th>Invoices</th>
+    <th>Attachments</th>
+    <th>Matches</th>
+    <th>User</th>
+    <th>&nbsp</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @jobs.each do |job| %>
+  <tr>
+    <td><%= job.id %></td>
+    <td>
+      <%= job.status.humanize %><br>
+      <small>Last updated: <%= job.updated_at.localtime %></small>
+    </td>
+    <td><%= job.uploads.where(category: :invoice).count %></td>
+    <td><%= job.uploads.where(category: :attachment).count %></td>
+    <td><%= job.matches.count %></td>
+    <td>
+      <%= job.user.name %><br>
+      <small>Created: <%= job.created_at.localtime %></small>
+    </td>
+    <td class="text-right">
+      <%= link_to 'Show', show_path(job), class: 'btn btn-m btn-primary' if job.status == 'done' %>
+      <%= link_to 'Continue', run_path(job.status, :job_id => job.id), class: 'btn btn-m btn-info' unless job.status == 'done' %>
+      <%= link_to 'Delete', show_path(job), class: 'btn btn-m btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<p><%= link_to 'New job', new_run_path, class: 'btn btn-m btn-success' %></p>
+
+<%= paginate @jobs %>

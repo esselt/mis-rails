@@ -1,0 +1,23 @@
+<div id="<%= upload.id %>" class="list-group-item">
+  <span class="pull-right">
+    <%= link_to 'Match',
+                ujs_match_path(upload.id),
+                id: 'match',
+                class: 'btn btn-m btn-success',
+                remote: true %>
+    <%= link_to 'Delete',
+                ujs_upload_destroy_path(upload.id),
+                class: 'btn btn-m btn-danger',
+                method: :delete, data: {confirm: 'Are you sure?'},
+                remote: true %>
+  </span>
+  <h4>
+    Filename:
+    <small><%= upload.filename_identifier %></small>
+  </h4>
+  <div id="message" class="text-danger">
+    <% if upload.match || upload.invoice_id %>
+        Already matched
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<h1>Edit setting</h1>
+
+<%= form_tag setting_path(@setting.id), method: 'put' do %>
+    <div class="row">
+      <div class="col-lg-12">
+        <legend>Setting:
+          <small><%= @setting.setting.humanize %></small>
+        </legend>
+        <div class="form-group">
+          <%= hidden_field_tag :setting, @setting.setting %>
+          <label>
+            <%= @setting.help %>
+          </label>
+          <%= text_area_tag :text, @setting.value, rows: 15, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <%= link_to 'Back', setting_index_path, class: 'btn btn-m btn-default' %>
+
+        <%= submit_tag 'Save', class: 'btn btn-m btn-success' %>
+      </div>
+    </div>
+<% end %>

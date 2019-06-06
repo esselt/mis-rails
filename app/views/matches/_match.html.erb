@@ -1,0 +1,22 @@
+<div id="<%= match.id %>" class="list-group-item">
+  <span class="pull-right">
+    <%= link_to 'Delete',
+                ujs_match_destroy_path(match.id),
+                class: 'btn btn-m btn-danger',
+                method: :delete, data: {confirm: 'Are you sure?'},
+                remote: true %>
+  </span>
+
+  <h4>
+    #<%= match.customer_id %> - <%= match.name %>
+    <small>(<%= match.email %>)</small>
+  </h4>
+
+  <div id="uploads">
+    <legend>Files</legend>
+    <%= render partial: 'uploads/match', locals: {upload: match.upload} %>
+    <% match.upload.attachments.order(:filename).each do |upload| %>
+        <%= render partial: 'uploads/match', locals: {upload: upload} %>
+    <% end %>
+  </div>
+</div>

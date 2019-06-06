@@ -1,0 +1,37 @@
+<h1>Processing invoices</h1>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= render partial: 'pagination' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <a id="process-btn" class="btn btn-success pull-right">Process invoices...</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div id="invoice-container" class="list-group">
+      <h4 class="list-group-item list-group-item-warning">Invoices</h4>
+      <%= render partial: 'uploads/upload', collection: @uploads %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div id="match-container" class="list-group">
+      <h4 class="list-group-item active">Matches</h4>
+      <%= render @matches %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= render partial: 'pagination' %>
+  </div>
+</div>

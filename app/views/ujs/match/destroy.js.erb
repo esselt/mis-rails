@@ -1,0 +1,9 @@
+$('#<%= match.upload.category %>-container')
+    .append('<%= j render partial: 'uploads/upload', locals: { upload: match.upload } %>');
+$('#<%= match.upload.category %>-container').find('#<%= match.upload.id %> > #message').text('');
+<% match.upload.attachments.order(:filename).each do |attachment| %>
+$('#<%= attachment.category %>-container')
+    .append('<%= j render partial: 'uploads/upload', locals: { upload: attachment } %>');
+$('#<%= attachment.category %>-container').find('#<%= attachment.id %> > #message').text('');
+<% end %>
+$('#match-container').find("#<%= match.id %>").remove();

@@ -1,0 +1,2 @@
+module Ujs::ShowHelper
+end

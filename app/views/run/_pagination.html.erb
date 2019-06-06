@@ -1,0 +1,11 @@
+<ul class="breadcrumb">
+  <% wizard_steps[0...-1].each do |w_step| %>
+      <li>
+        <% if w_step == step %>
+            <%= w_step.to_s.humanize %>
+        <% else %>
+            <%= link_to w_step.to_s.humanize, wizard_path(w_step, job_id: @job.id) %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>

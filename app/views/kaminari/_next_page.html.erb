@@ -1,0 +1,7 @@
+<% if current_page.last? %>
+    <li class="disabled"><a>&rsaquo;</a></li>
+<% else %>
+    <li>
+      <%= link_to '&rsaquo;'.html_safe, url, :rel => 'next', :remote => remote %>
+    </li>
+<% end %>

@@ -1,0 +1,14 @@
+<div id="<%= setting.id %>" class="list-group-item">
+  <div class="pull-right text-right">
+    <%= link_to 'Show', setting_path(setting.id), class: 'btn btn-m btn-info' %>
+    <%= link_to 'Edit', edit_setting_path(setting.id), class: 'btn btn-m btn-success' %>
+  </div>
+
+  <h4 class="list-group-item-heading">
+    <%= setting.setting.humanize %>
+    <small>(Version: <%= setting.version %>)</small>
+  </h4>
+  <p class="list-group-item-text">
+    <%= simple_format(setting.value || 'Not set') %>
+  </p>
+</div>

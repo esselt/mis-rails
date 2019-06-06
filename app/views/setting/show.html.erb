@@ -1,0 +1,25 @@
+<h1>Show setting</h1>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="list-group">
+      <h4 class="list-group-item active"><%= @setting.setting.humanize %></h4>
+      <div class="list-group-item">
+        <small><%= @setting.help %></small>
+      </div>
+      <% @versions.each do |version| %>
+          <div class="list-group-item">
+            <small class="list-group-item-heading">Version: <%= version.version %></small>
+            <p class="list-group-item-text"><%= simple_format(version.value || 'Not set') %></p>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= link_to 'Back', setting_index_path, class: 'btn btn-m btn-default' %>
+    <%= link_to 'Edit', edit_setting_path(@setting.id), class: 'btn btn-m btn-success' %>
+  </div>
+</div>

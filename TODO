@@ -1,0 +1,2 @@
+* Hvis sending feiles, send lagre denne informasjonen om dette og send beskjed?
+* Konverter til ActionCable og Rails5

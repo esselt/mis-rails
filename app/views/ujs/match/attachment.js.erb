@@ -1,0 +1,3 @@
+$('#match-container').find('#<%= match.id %> > div#uploads')
+    .append('<%= j render partial: 'uploads/match', locals: { upload: upload } %>');
+$('#<%= upload.category %>-container').find("#<%= upload.id %>").remove();

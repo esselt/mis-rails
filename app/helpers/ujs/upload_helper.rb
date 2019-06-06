@@ -1,0 +1,2 @@
+module Ujs::UploadHelper
+end
