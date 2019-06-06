@@ -1,8 +1,15 @@
 .git*
 .dockerignore
+.gitignore
+.bundle
+.env
 db/*.sqlite3
 db/*.sqlite3-journal
 log/*
 tmp/*
 Dockerfile
+docker-compose.yml
 README.rdoc
+TODO
+public/assets
+public/uploads
