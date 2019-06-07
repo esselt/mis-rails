@@ -1,15 +1,15 @@
 version: '3'
 services:
   db:
-    image: mysql:5.7
+    image: postgres:11
     volumes:
-      - ./tmp/db:/var/lib/mysql
+      - ./tmp/db:/var/lib/postgresql/data
     env_file:
       - .env
     restart: always
 
   redis:
-    image: redis:5-alpine
+    image: redis:5
     ports:
       - '6379:6379'
     volumes:

@@ -69,8 +69,8 @@ source 'https://rails-assets.org' do
 end
 
 group :production do
-  # Use mysql2 as the database for Active Record
-  gem 'mysql2', '~> 0.3.18'
+  # Use Postgres as the database for Active Record
+  gem 'pg', '~> 0.21'
 end
 
 group :development, :test do

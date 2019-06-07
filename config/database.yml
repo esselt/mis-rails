@@ -11,13 +11,13 @@ default: &default
 
 development:
   <<: *default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  host: <%= ENV.fetch('MYSQL_HOST') { 'localhost' } %>
-  port: <%= ENV.fetch('MYSQL_PORT') { 3306 } %>
-  username: <%= ENV.fetch('MYSQL_USER') { 'mis-rails' } %>
-  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'wrong-password' } %>
-  database: <%= ENV.fetch('MYSQL_DATABASE') { 'mis_rails' } %>
+  host: <%= ENV.fetch('POSTGRES_HOST') { 'localhost' } %>
+  port: <%= ENV.fetch('POSTGRES_PORT') { 5432 } %>
+  username: <%= ENV.fetch('POSTGRES_USER') { 'mis-rails' } %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD') { 'wrong-password' } %>
+  database: <%= ENV.fetch('POSTGRES_DATABASE') { 'mis_rails' } %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,13 +28,13 @@ test:
 
 production:
   <<: *default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  host: <%= ENV.fetch('MYSQL_HOST') { 'localhost' } %>
-  port: <%= ENV.fetch('MYSQL_PORT') { 3306 } %>
-  username: <%= ENV.fetch('MYSQL_USER') { 'mis-rails' } %>
-  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'wrong-password' } %>
-  database: <%= ENV.fetch('MYSQL_DATABASE') { 'mis_rails' } %>
+  host: <%= ENV.fetch('POSTGRES_HOST') { 'localhost' } %>
+  port: <%= ENV.fetch('POSTGRES_PORT') { 5432 } %>
+  username: <%= ENV.fetch('POSTGRES_USER') { 'mis-rails' } %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD') { 'wrong-password' } %>
+  database: <%= ENV.fetch('POSTGRES_DATABASE') { 'mis_rails' } %>
 
 mamut:
   <<: *default
