@@ -17,10 +17,10 @@ class Setting < ActiveRecord::Base
       Rails.cache.delete("pull/#{setting}") if no_cache
 
       Rails.cache.fetch("pull/#{setting}", expires_in: 1.minute) do
-        where(setting: setting, version: Setting.where(setting: setting)
-                                             .maximum(:version))
-            .group('setting')
-            .limit(1).first_or_create do |record|
+        where(setting: setting, version: Setting.where(setting: setting).maximum(:version))
+        .group('settings.id')
+        .group('setting')
+        .limit(1).first_or_create do |record|
           record.setting = setting
           record.version = 0
         end
