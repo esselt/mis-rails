@@ -120,7 +120,7 @@ GEM
       rubyntlm (~> 0.3.4)
     orm_adapter (0.5.0)
     pg (0.21.0)
-    puma (3.12.1)
+    puma (3.12.3)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.6.11)
     rack-protection (2.0.5)
