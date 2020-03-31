@@ -29,3 +29,25 @@ SMTP_AUTH=login
 SMTP_STARTTLS=1
 REDIS_URL=redis://redis:6379/0
 CACHE_URL=redis://redis:6379/0
+
+
+Add to Postgres environment (write to .env.postgres)
+
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
+
+# How to use
+
+## Build images
+docker-compose build
+
+## Run app
+docker-compose up
+
+## Migrate on first run
+docker-compose exec app rake db:migrate
+
+## Upgrade gems and Gemfile.lock
+docker-compose run --rm app bundle update
+docker-compose build

@@ -18,4 +18,4 @@
 *.sqlite3
 /.bundle/
 *.rdb
-.env
+.env*

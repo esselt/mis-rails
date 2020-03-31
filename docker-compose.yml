@@ -5,7 +5,7 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     env_file:
-      - .env
+      - .env.postgres
     restart: always
 
   redis:
