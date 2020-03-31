@@ -80,10 +80,3 @@
     <%= render partial: 'pagination' %>
   </div>
 </div>
-
-<script>
-  var source = new EventSource('<%= ujs_show_path(@job.id) %>');
-  source.addEventListener('change', function (event) {
-    $.globalEval(event.data);
-  });
-</script>

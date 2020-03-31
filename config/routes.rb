@@ -17,8 +17,6 @@ Rails.application.routes.draw do
     delete 'match/:id', to: 'match#destroy', as: 'match_destroy'
 
     get 'run/:id', to: 'run#start', as: 'run'
-
-    get 'show/:id', to: 'show#show', as: 'show'
   end
 
   resources :run, only: [:show, :new]
