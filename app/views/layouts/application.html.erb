@@ -25,9 +25,9 @@
     <% if user_signed_in? %>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="<%= root_path %>">List jobs</a></li>
-        <li><a href="<%= new_run_path %>">New job</a></li>
-        <li><a href="<%= setting_index_path %>">Settings</a></li>
+        <li><%= link_to 'List jobs', root_path %></li>
+        <li><%= link_to 'New job', new_run_path, data: { turbolinks: false } %></li>
+        <li><%= link_to 'Settings', setting_index_path %></li>
         <li><%= link_to "Sign out (#{current_user.name})", destroy_user_session_path %></li>
       </ul>
     </div>
